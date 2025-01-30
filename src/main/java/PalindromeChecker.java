@@ -37,12 +37,20 @@ public void tester()
 }
 public boolean palindrome(String word)
 {
-  if (reverse(word).equals(word))
+  word=word.toLowerCase();
+  word=onlyLetters(word);
+  word=noSpaces(word);
+  if (word.equals(reverse(word)))
     return true;
   return false;
 }
+
+
 public String reverse(String str)
 {
+  str=str.toLowerCase();
+  str=onlyLetters(str);
+  str=noSpaces(str);
   String answer="";
   int count=0; 
   for (int i=1;i<str.length()+1;i++){
@@ -50,4 +58,25 @@ public String reverse(String str)
     count++;
   }
   return answer;
+}
+
+public String onlyLetters(String sString){
+  String answer="";
+  for(int i=0;i<sString.length();i++){
+    if(Character.isLetter(sString.charAt(i)))
+      answer+=sString.charAt(i);
+  }
+  return answer; 
+}
+
+public String noSpaces(String sWord) {
+    String answer = ""; // Initialize an empty string to store result
+
+    for (int i = 0; i < sWord.length(); i++) { // Loop through each character
+        if (sWord.charAt(i) != ' ') { // Check if character is not a space
+            answer += sWord.charAt(i); // Append non-space character to answer
+        }
+    }
+
+    return answer; // Return the modified string
 }
