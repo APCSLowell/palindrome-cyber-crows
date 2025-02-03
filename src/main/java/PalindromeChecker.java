@@ -80,3 +80,4 @@ public String noSpaces(String sWord) {
 
     return answer; // Return the modified string
 }
+}//end of class
